@@ -6,6 +6,6 @@ public class User {
     private String password;
 
     User(){
-        password = "ovo";
+        password="qwq";
     }
 }
