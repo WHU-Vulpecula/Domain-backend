@@ -11,10 +11,4 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
     @Autowired
     private UserMapper userMapper;
-
-    @Override
-    public String registerUser(User user) {
-        if(userMapper.insert(user)>0) return "success";
-        else return "failed";
-    }
 }

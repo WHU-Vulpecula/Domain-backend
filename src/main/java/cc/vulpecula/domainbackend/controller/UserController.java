@@ -13,8 +13,12 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/register")
-    boolean test(@RequestBody User user) {
-        return userService.save(user);
+    Integer register(@RequestBody User user) {
+        userService.save(user);
+        QueryWrapper<User> wrapper=new QueryWrapper<>();
+        wrapper.eq("email",user.getEmail());
+        User temp=userService.getOne(wrapper);
+        return temp.getId();
     }
     @GetMapping("/login")
     boolean login(@RequestParam Integer id,@RequestParam String password){
