@@ -1,6 +1,7 @@
 package cc.vulpecula.domainbackend.servicer;
 
 import cc.vulpecula.domainbackend.classhome.CircleUserRela;
+import cc.vulpecula.domainbackend.classhome.User;
 import cc.vulpecula.domainbackend.mapper.CircleMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.IService;
@@ -12,5 +13,6 @@ import java.util.List;
 
 public interface CircleService extends IService<CircleUserRela> {
 
-    List<CircleUserRela> getUsersByCircleID(int id);
+    List<CircleUserRela> getUserIDsByCircleID(int id);
+    List<CircleUserRela> getCircleIDsByUserID(int id);
 }
