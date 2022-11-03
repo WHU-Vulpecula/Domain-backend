@@ -39,6 +39,10 @@ public class TodoItemController {
     List<TodoItem> localGetUpdate(@PathVariable String userId){
         QueryWrapper<TodoItem> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("is_update", true);
-        return todoItemService.list(queryWrapper);
+        List<TodoItem> res = todoItemService.list(queryWrapper);
+        TodoItem todoItem = new TodoItem();
+        todoItem.setUpdate(false);
+        todoItemService.update(todoItem,queryWrapper);
+        return res;
     }
 }
